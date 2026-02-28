@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-space: "Space Grotesk", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-cyan: #06B6D4;
+  --color-brand-magenta: #D946EF;
+  --color-brand-yellow: #FACC15;
+  --color-brand-black: #18181B;
+}
+
+@layer base {
+  body {
+    @apply font-manrope bg-gray-50;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space;
+  }
+}
+
+@layer components {
+  .neo-button {
+    @apply bg-black text-white border-2 border-black rounded-md uppercase font-bold tracking-wider transition-all;
+    box-shadow: 4px 4px 0px 0px #06B6D4;
+  }
+
+  .neo-button:hover {
+    @apply -translate-x-[2px] -translate-y-[2px];
+    box-shadow: 6px 6px 0px 0px #06B6D4;
+  }
+
+  .neo-button:active {
+    @apply translate-x-[2px] translate-y-[2px];
+    box-shadow: 2px 2px 0px 0px #06B6D4;
+  }
+
+  .neo-button-secondary {
+    @apply bg-white text-black border-2 border-black rounded-md uppercase font-bold tracking-wider transition-all;
+    box-shadow: 4px 4px 0px 0px #D946EF;
+  }
+
+  .neo-button-secondary:hover {
+    @apply -translate-x-[2px] -translate-y-[2px];
+    box-shadow: 6px 6px 0px 0px #D946EF;
+  }
+
+  .neo-button-secondary:active {
+    @apply translate-x-[2px] translate-y-[2px];
+    box-shadow: 2px 2px 0px 0px #D946EF;
+  }
+
+  .neo-card {
+    @apply bg-white border-2 border-black rounded-lg p-6 transition-all duration-300;
+    box-shadow: 4px 4px 0px 0px #18181B;
+  }
+
+  .neo-card:hover {
+    box-shadow: 6px 6px 0px 0px #FACC15;
+  }
+
+  .neo-input {
+    @apply border-2 border-gray-200 focus:border-black rounded-md h-12 text-lg bg-gray-50 focus:bg-white transition-all outline-none;
+  }
+
+  .neo-input:focus {
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+  }
+}
