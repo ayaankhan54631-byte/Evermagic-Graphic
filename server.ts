@@ -1,6 +1,6 @@
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
-import pg from 'pg'; // The Cloud Connector
+import pg from 'pg'; 
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -10,13 +10,12 @@ console.log('Starting Evermagic Graphic Cloud Server...');
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // 1. CONNECT TO THE MAGIC CLOUD
-// This looks for the secret link you put in the GitHub settings
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
 
-// 2. MAKE THE TABLES IN THE CLOUD
+// 2. MAKE THE TABLES AND ADD LOGINS
 async function initializeDatabase() {
   try {
     await db.query(`
@@ -78,14 +77,17 @@ async function initializeDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
-    console.log('Magic Cloud Database is ready! ☁️');
-    
-    // Seed Admin User
+
+    // SEED LOGINS (This adds your users to the cloud)
     await db.query(`
       INSERT INTO users (username, password, role) 
-      VALUES ('Ayaankhan', 'ayaanwhite123', 'admin')
+      VALUES 
+        ('Ayaankhan', 'ayaanwhite123', 'admin'),
+        ('evermagicgraphic@gmail.com', 'ever123', 'staff')
       ON CONFLICT (username) DO NOTHING
     `);
+
+    console.log('Magic Cloud Database is ready! ☁️');
   } catch (error) {
     console.error('Database setup failed:', error);
   }
@@ -96,20 +98,27 @@ async function startServer() {
   const app = express();
   app.use(express.json());
 
-  // --- API ROUTES ---
-
+  // --- AUTH ROUTES ---
   app.post('/api/auth/login', async (req, res) => {
     const { username, password } = req.body;
-    const result = await db.query('SELECT * FROM users WHERE LOWER(username) = LOWER($1) AND password = $2', [username, password]);
-    const user = result.rows[0];
-    
-    if (user) {
-      res.json({ token: 'mock-jwt-token', user: { id: user.id, username: user.username, role: user.role } });
-    } else {
-      res.status(401).json({ detail: 'Invalid credentials' });
+    try {
+      const result = await db.query(
+        'SELECT * FROM users WHERE LOWER(username) = LOWER($1) AND password = $2', 
+        [username, password]
+      );
+      const user = result.rows[0];
+      
+      if (user) {
+        res.json({ token: 'mock-jwt-token', user: { id: user.id, username: user.username, role: user.role } });
+      } else {
+        res.status(401).json({ detail: 'Invalid credentials' });
+      }
+    } catch (err) {
+      res.status(500).json({ detail: 'Login error' });
     }
   });
 
+  // --- CUSTOMER ROUTES ---
   app.get('/api/customers', async (req, res) => {
     const result = await db.query('SELECT * FROM customers');
     res.json(result.rows);
@@ -124,11 +133,13 @@ async function startServer() {
     res.json(result.rows[0]);
   });
 
+  // --- INVENTORY ROUTES ---
   app.get('/api/inventory', async (req, res) => {
     const result = await db.query('SELECT * FROM inventory');
     res.json(result.rows);
   });
 
+  // --- ORDER ROUTES ---
   app.post('/api/orders', async (req, res) => {
     const data = req.body;
     const order_number = 'ORD-' + Date.now();
@@ -159,16 +170,21 @@ async function startServer() {
     }
   });
 
+  // --- DASHBOARD STATS ---
   app.get('/api/dashboard/stats', async (req, res) => {
-    const revenue = await db.query("SELECT SUM(total_amount) as val FROM orders WHERE date(created_at) = CURRENT_DATE");
-    const pending = await db.query("SELECT COUNT(*) as val FROM orders WHERE status != 'completed'");
-    const lowStock = await db.query("SELECT COUNT(*) as val FROM inventory WHERE stock_sqft < min_stock");
-    
-    res.json({
-      total_revenue: revenue.rows[0].val || 0,
-      pending_orders: pending.rows[0].val || 0,
-      low_stock_count: lowStock.rows[0].val || 0
-    });
+    try {
+      const revenue = await db.query("SELECT SUM(total_amount) as val FROM orders WHERE date(created_at) = CURRENT_DATE");
+      const pending = await db.query("SELECT COUNT(*) as val FROM orders WHERE status != 'completed'");
+      const lowStock = await db.query("SELECT COUNT(*) as val FROM inventory WHERE stock_sqft < min_stock");
+      
+      res.json({
+        total_revenue: revenue.rows[0].val || 0,
+        pending_orders: pending.rows[0].val || 0,
+        low_stock_count: lowStock.rows[0].val || 0
+      });
+    } catch (err) {
+      res.status(500).json({ detail: 'Stats error' });
+    }
   });
 
   // --- VITE / SERVING FRONTEND ---
