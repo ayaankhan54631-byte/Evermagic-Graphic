@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lachoo Memorial College — Smart-Green Campus Initiative Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberSpace: '#050608',
+                        cardDark: '#0b0c14',
+                        borderDark: '#161a23',
+                        borderMuted: '#1d2235'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050608; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Smooth Scrollbar Customization */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #050608; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1d2235; border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a3e635; }
+
+        /* Elegant Neon Range Slider Design */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #161a23;
+            height: 8px;
+            border-radius: 4px;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #a3e635;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(163, 230, 53, 0.6);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+            background: #bef264;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen selection:bg-lime-400 selection:text-slate-900 relative antialiased overflow-x-hidden">
+
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-lime-500/10 via-emerald-500/5 to-transparent rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+    <header class="sticky top-0 z-40 bg-cyberSpace/80 backdrop-blur-xl border-b border-borderDark/80 px-4 lg:px-8 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-3.5 w-full lg:w-auto">
+                <div class="bg-gradient-to-br from-lime-400 to-emerald-500 p-2.5 rounded-xl flex items-center justify-center text-slate-950 shadow-lg shadow-lime-400/20">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                    <div class="font-extrabold text-base tracking-tight uppercase leading-none text-slate-100 flex items-center gap-2">
+                        Lachoo Memorial College
+                        <span class="w-2 h-2 rounded-full bg-lime-400 animate-ping"></span>
+                    </div>
+                    <span class="font-mono text-[10px] tracking-widest text-lime-400 font-bold block uppercase mt-1">Smart-Green Campus Portal</span>
+                    <span class="font-mono text-[9px] text-slate-500 block leading-none mt-0.5">SHASTRI NAGAR, JODHPUR (JdVVNL ZONE)</span>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap justify-center items-center gap-1 md:gap-2 font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                <a href="#overview" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">Overview</a>
+                <a href="#ai-bill-analyzer" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">AI Bill-Analyzer</a>
+                <a href="#solar-rooftop" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">Solar Rooftop</a>
+                <a href="#kinetic-tiles" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">Kinetic Sandbox</a>
+                <a href="#green-roadmap" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">Compliance Matrix</a>
+                <a href="#dialogue-alerts" class="px-3 py-1.5 rounded-lg hover:bg-cardDark hover:text-lime-400 transition-all">Dialogue Hub</a>
+            </nav>
+
+            <div class="flex items-center gap-2 w-full lg:w-auto justify-end">
+                <button onclick="toggleShareModal(true)" class="flex-1 lg:flex-none flex items-center justify-center gap-2 font-mono text-xs uppercase px-4 py-2 border border-borderDark bg-cardDark hover:bg-slate-900 rounded-lg text-slate-300 font-semibold transition-all">
+                    Share Link
+                </button>
+                <a href="#net-metering-segment" class="flex-1 lg:flex-none flex items-center justify-center gap-2 font-mono text-xs uppercase px-4 py-2 bg-gradient-to-r from-lime-400 to-emerald-400 text-slate-950 hover:from-lime-300 hover:to-emerald-300 rounded-lg font-bold transition-transform active:scale-95 shadow-md shadow-lime-400/10">
+                    NOC Checklist
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="overview" class="relative pt-20 pb-24 px-4 md:px-8 max-w-7xl mx-auto z-10">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cardDark border border-lime-500/20 text-lime-400 font-mono text-xs uppercase tracking-wider mb-8 shadow-inner shadow-black">
+            <span class="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-lime-400 to-emerald-400 animate-pulse"></span> Sustainability Telemetry Pipeline Active
+        </div>
+
+        <div class="max-w-5xl mb-12">
+            <h1 class="text-4xl md:text-7xl font-black tracking-tight uppercase leading-[0.9] text-slate-100">
+                Pioneering Campus Carbon Decarbonization via <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-400 to-teal-400">Cybernetic Automation</span>
+            </h1>
+            <p class="mt-6 text-base md:text-lg text-slate-400 max-w-3xl leading-relaxed">
+                Integrating intelligent JdVVNL commercial electrical infrastructure audit modules, rooftop photovoltaic simulation array calculations, and live kinetic pedestrian energy telemetry models customized for the Lachoo Memorial Campus ecosystem.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4 font-mono text-xs uppercase">
+            <a href="#ai-bill-analyzer" class="px-6 py-3.5 bg-gradient-to-r from-lime-400 to-emerald-400 text-slate-950 font-bold rounded-xl hover:from-lime-300 hover:to-emerald-300 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-lime-400/10">Verify JdVVNL Bills</a>
+            <a href="#kinetic-tiles" class="px-6 py-3.5 bg-cardDark border border-borderDark text-slate-300 font-semibold rounded-xl hover:border-slate-700 transition-all transform hover:-translate-y-0.5">Live Footfall Feed</a>
+            <button onclick="toggleShareModal(true)" class="px-6 py-3.5 bg-transparent border border-lime-500/20 text-lime-400 rounded-xl hover:bg-lime-500/5 transition-all">Share Portal URL</button>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-20 pt-10 border-t border-borderDark font-mono text-xs">
+            <div class="bg-cardDark/40 p-4 rounded-xl border border-borderDark/40"><span class="text-slate-500 block uppercase mb-1">REGIONAL SOLAR RATING</span><span class="text-xl font-bold text-slate-200">6.9 kWh / m² / day</span></div>
+            <div class="bg-cardDark/40 p-4 rounded-xl border border-borderDark/40"><span class="text-slate-500 block uppercase mb-1">UTILITY TARIFF VALUE</span><span class="text-xl font-bold text-lime-400">₹6.75 / unit Flat</span></div>
+            <div class="bg-cardDark/40 p-4 rounded-xl border border-borderDark/40"><span class="text-slate-500 block uppercase mb-1">CORE DATA STREAMING</span><span class="text-xl font-bold text-slate-200">4 Active Wings</span></div>
+            <div class="bg-cardDark/40 p-4 rounded-xl border border-borderDark/40"><span class="text-slate-500 block uppercase mb-1">HARDWARE NODE LINK</span><span class="text-xl font-bold text-emerald-400">ESP32 Modules</span></div>
+        </div>
+    </main>
+
+    <section id="ai-bill-analyzer" class="border-t border-borderDark bg-cardDark/50 py-20 px-4 md:px-8 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-lime-400 font-bold block mb-2">// ENGINE LOG v2.16</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-100 tracking-tight uppercase">JdVVNL Institutional Bill Analyzer</h2>
+                </div>
+                <div class="bg-cyberSpace border border-borderDark px-5 py-3 rounded-xl text-right font-mono shadow-inner">
+                    <span class="text-slate-500 text-[10px] block font-bold tracking-wider">CURRENT BASE TARIFF RATE</span>
+                    <span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-lime-400 to-emerald-400 font-black text-xl">₹6.75 / kWh Unit</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <button onclick="loadBillPreset(1900000, 250000, 'preset-main')" id="preset-main" class="p-5 rounded-xl border text-left bg-lime-950/20 border-lime-500/50 shadow-lg shadow-lime-500/5 font-mono text-sm font-bold text-slate-200 transition-all duration-300">
+                    <div class="flex justify-between items-center mb-1">
+                        <span>Main Academic Block</span>
+                        <span class="text-[10px] bg-lime-400 text-slate-950 px-1.5 rounded">Active</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-sans font-normal leading-relaxed">High peak consumption matrix including heavy computer engineering networks & centralized science labs.</p>
+                </button>
+                <button onclick="loadBillPreset(750000, 140000, 'preset-pharmacy')" id="preset-pharmacy" class="p-5 rounded-xl border text-left bg-cyberSpace border-borderDark text-slate-400 hover:border-slate-700 font-mono text-sm font-bold transition-all duration-300">
+                    <div class="flex justify-between items-center mb-1">
+                        <span>Pharmacy Research Wing</span>
+                        <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 rounded">Standby</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-sans font-normal leading-relaxed">Continuous runtime laboratory loads, persistent cleanroom ambient control fans, and processing equipment.</p>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 bg-cyberSpace border border-borderDark p-6 rounded-2xl shadow-xl font-mono space-y-5">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-borderDark pb-3 flex items-center justify-between">
+                        <span>Telemetry Modifiers</span>
+                        <span class="text-slate-600">[INPUT_BLOCK]</span>
+                    </h3>
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-400 mb-2 uppercase tracking-wide">Annual Units Consumed (kWh)</label>
+                        <input type="number" id="bill-units" value="1900000" oninput="calculateBill()" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-lime-400 focus:outline-none focus:border-lime-400 font-bold text-sm tracking-wide shadow-inner">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-slate-400 mb-2 uppercase tracking-wide">Annual Fixed Demand Charges (₹)</label>
+                        <input type="number" id="bill-fixed" value="250000" oninput="calculateBill()" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-lime-400 focus:outline-none focus:border-lime-400 font-bold text-sm tracking-wide shadow-inner">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-cyberSpace/60 border border-borderDark p-6 rounded-2xl flex flex-col justify-between shadow-xl">
+                        <span class="font-mono text-xs text-slate-500 uppercase tracking-wider block">// Calculated Grid Cost Liability</span>
+                        <div class="my-6">
+                            <span id="bill-variable-breakdown" class="text-xs font-mono block text-slate-400 tracking-wide mb-1">Variable Phase: ₹12,825,000</span>
+                            <span id="bill-total" class="text-3xl font-mono font-black text-slate-100 tracking-tight">₹13,075,000</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-sans border-t border-borderDark/60 pt-3">Calculated according to standard Jodhpur Discom commercial codes.</div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-lime-950/30 to-emerald-950/10 border border-lime-500/20 p-6 rounded-2xl flex flex-col justify-between shadow-xl">
+                        <span class="font-mono text-xs text-lime-400 uppercase tracking-wider block font-bold">// Solar Savings Capacity Assessment</span>
+                        <div class="my-6">
+                            <span class="text-xs font-mono block text-lime-600/80 font-bold mb-1">Net Annual Offset (68% Mitigation)</span>
+                            <span id="bill-offset" class="text-3xl font-mono font-black text-lime-400 tracking-tight">₹8,891,000</span>
+                        </div>
+                        <div class="text-xs font-mono text-slate-300 border-t border-lime-500/10 pt-3">
+                            Amortized Project Payback Period: <span id="bill-payback" class="text-emerald-400 font-bold">4.8 Years</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyberSpace border border-borderDark p-6 rounded-2xl md:col-span-2 font-mono text-xs text-slate-300 space-y-2.5 shadow-xl">
+                        <div class="flex items-center gap-2 text-lime-400 uppercase font-black text-[11px] tracking-wider">
+                            <span class="w-1.5 h-1.5 rounded-full bg-lime-400"></span> Generative Expert Audit Engine Logs
+                        </div>
+                        <p class="leading-relaxed font-sans text-slate-400 text-sm">
+                            West Rajasthan solar atmospheric configuration applied: Jodhpur exhibits high clear-sky horizontal irradiance indices (~6.9 peak hours/day). Target optimization dictates matching standard operational hours (09:00 to 16:00 IST) directly to college laboratory shifts. Frequent regional ambient particulate accumulation requires bi-weekly automated cleanings to eliminate severe output degradation penalties.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solar-rooftop" class="border-t border-borderDark bg-cyberSpace py-20 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase mb-10 text-slate-100">Rooftop Solar PV Yield Modeler</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 space-y-3.5" id="solar-wing-list">
+                    <button onclick="selectSolarWing(1800, this)" class="wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-lime-950/20 border-lime-500/50 text-slate-100 shadow-md">
+                        <span class="font-mono text-sm font-bold block mb-2">Administration & Main Block</span>
+                        <div class="flex justify-between text-xs font-mono text-slate-400"><span>Available Roof Area:</span><span class="text-lime-400 font-bold">1800 sq.m</span></div>
+                    </button>
+                    <button onclick="selectSolarWing(1200, this)" class="wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-cardDark border-borderDark text-slate-400 hover:border-slate-700">
+                        <span class="font-mono text-sm font-bold block mb-2">College of Pharmacy Block</span>
+                        <div class="flex justify-between text-xs font-mono text-slate-400"><span>Available Roof Area:</span><span class="text-lime-400 font-bold">1200 sq.m</span></div>
+                    </button>
+                    <button onclick="selectSolarWing(800, this)" class="wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-cardDark border-borderDark text-slate-400 hover:border-slate-700">
+                        <span class="font-mono text-sm font-bold block mb-2">Science Labs & PG Block</span>
+                        <div class="flex justify-between text-xs font-mono text-slate-400"><span>Available Roof Area:</span><span class="text-lime-400 font-bold">800 sq.m</span></div>
+                    </button>
+                    <button onclick="selectSolarWing(1400, this)" class="wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-cardDark border-borderDark text-slate-400 hover:border-slate-700">
+                        <span class="font-mono text-sm font-bold block mb-2">Student Hostels & Mess Wing</span>
+                        <div class="flex justify-between text-xs font-mono text-slate-400"><span>Available Roof Area:</span><span class="text-lime-400 font-bold">1400 sq.m</span></div>
+                    </button>
+                </div>
+
+                <div class="lg:col-span-8 bg-cardDark border border-borderDark rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-2xl">
+                    <div>
+                        <div class="flex justify-between items-center font-mono text-xs uppercase tracking-wider text-slate-400 mb-5">
+                            <span class="font-bold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-lime-400"></span> Area Allocator Module</span>
+                            <span id="coverage-val" class="text-lime-400 font-bold bg-[#161a23] px-2 py-0.5 rounded">60% Target</span>
+                        </div>
+                        <div class="space-y-3 mb-8">
+                            <input type="range" id="solar-slider" min="10" max="100" step="5" value="60" oninput="runSolarModel()" class="w-full cursor-pointer">
+                            <div class="flex justify-between text-[11px] font-mono text-slate-500 font-semibold">
+                                <span>10% (Min Plan)</span>
+                                <span id="calc-area-label" class="text-slate-300 bg-cyberSpace px-3 py-0.5 rounded border border-borderDark">Calculated Net Footprint: 1080 sq.m</span>
+                                <span>100% (Full Scan)</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-cyberSpace border border-borderDark p-5 rounded-xl font-mono shadow-inner">
+                                <span class="text-slate-500 text-[11px] block uppercase font-bold tracking-wide mb-1">Estimated Peak Capacity</span>
+                                <span id="solar-out-capacity" class="text-2xl font-black text-slate-200 tracking-tight">108.0 kWp</span>
+                            </div>
+                            <div class="bg-cyberSpace border border-borderDark p-5 rounded-xl font-mono shadow-inner">
+                                <span class="text-slate-500 text-[11px] block uppercase font-bold tracking-wide mb-1">Daily Yield Prediction</span>
+                                <span id="solar-out-daily" class="text-2xl font-black text-lime-400 tracking-tight">573.8 kWh</span>
+                            </div>
+                            <div class="bg-cyberSpace border border-borderDark p-5 rounded-xl font-mono shadow-inner">
+                                <span class="text-slate-500 text-[11px] block uppercase font-bold tracking-wide mb-1">Monthly Aggregate Generation</span>
+                                <span id="solar-out-monthly" class="text-2xl font-black text-slate-200 tracking-tight">17,444 kWh</span>
+                            </div>
+                            <div class="bg-cyberSpace border border-borderDark p-5 rounded-xl font-mono shadow-inner">
+                                <span class="text-slate-500 text-[11px] block uppercase font-bold tracking-wide mb-1">Amortized Break-Even Point</span>
+                                <span id="solar-out-payback" class="text-2xl font-black text-emerald-400 tracking-tight">4.2 Years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-borderDark pt-6 font-mono text-sm space-y-2.5 text-slate-400">
+                        <div class="flex justify-between"><span>Gross Capex (Turnkey Implementation):</span><span id="solar-cost-base" class="text-slate-200 font-semibold">₹5,940,000</span></div>
+                        <div class="flex justify-between items-center">
+                            <span class="flex items-center gap-1.5">National PM-Surya Ghar Subsidy Calculation:</span>
+                            <span id="solar-cost-subsidy" class="text-emerald-400 font-bold bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded text-xs">- ₹132,000</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-borderDark pt-4 text-base font-bold">
+                            <span class="text-slate-100 uppercase tracking-tight">Net Institutional Capital Requirement:</span>
+                            <span id="solar-cost-net" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">₹5,808,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kinetic-tiles" class="border-t border-borderDark bg-cardDark/40 py-20 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tight uppercase mb-10 text-slate-100">Kinetic Step-Energy Harvesting Sandbox</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-cyberSpace border border-borderDark p-6 rounded-2xl font-mono shadow-xl relative overflow-hidden">
+                    <span class="text-slate-500 text-xs block uppercase font-bold tracking-wider mb-1">AGGREGATE CAMPUS FOOTFALL</span>
+                    <span id="cli-footfall-counter" class="text-4xl font-black text-slate-100 tracking-tight font-mono">342,050</span>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 bg-slate-800/10 rounded-tl-full pointer-events-none"></div>
+                </div>
+                <div class="bg-cyberSpace border border-borderDark p-6 rounded-2xl font-mono shadow-xl relative overflow-hidden">
+                    <span class="text-slate-500 text-xs block uppercase font-bold tracking-wider mb-1">TOTAL GENERATED INTERCEPT</span>
+                    <span id="cli-joules-counter" class="text-4xl font-black text-lime-400 tracking-tight font-mono">3,420.50 kJ</span>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 bg-lime-400/5 rounded-tl-full pointer-events-none"></div>
+                </div>
+                <div id="cli-pulse-indicator" class="border border-borderDark bg-cyberSpace p-6 rounded-2xl font-mono flex items-center justify-between transition-all duration-300 shadow-xl">
+                    <div>
+                        <span class="text-slate-500 text-xs block uppercase font-bold tracking-wider mb-1">NETWORK FEED INTENSITY</span>
+                        <span id="cli-pulse-text" class="text-xl font-black uppercase text-slate-200 tracking-wide block">NOMINAL STREAM</span>
+                    </div>
+                    <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse block"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-6 bg-cyberSpace border border-borderDark rounded-2xl overflow-hidden flex flex-col h-[420px] shadow-2xl">
+                    <div class="bg-[#0b0c14] px-5 py-3 border-b border-borderDark flex items-center justify-between">
+                        <span class="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                            <span class="flex gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 block"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 block"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 block"></span></span>
+                            Live Harvester IO Stream
+                        </span>
+                        <div class="flex gap-1 bg-cyberSpace p-1 border border-borderDark rounded-lg font-mono text-[10px]">
+                            <button onclick="setCliSpeed('Normal', this)" class="speed-btn px-2.5 py-1 rounded-md bg-lime-400 text-slate-900 font-bold transition-all">NORMAL</button>
+                            <button onclick="setCliSpeed('Fast', this)" class="speed-btn px-2.5 py-1 rounded-md text-slate-400 font-bold transition-all">FAST</button>
+                            <button onclick="setCliSpeed('Paused', this)" class="speed-btn px-2.5 py-1 rounded-md text-slate-400 font-bold transition-all">PAUSED</button>
+                        </div>
+                    </div>
+                    <div id="cli-terminal-screen" class="p-5 font-mono text-[11px] overflow-y-auto flex-1 space-y-2 custom-scrollbar text-slate-300 bg-[#030406]">
+                        </div>
+                </div>
+
+                <div class="lg:col-span-6 bg-cyberSpace border border-borderDark rounded-2xl overflow-hidden flex flex-col h-[420px] shadow-2xl">
+                    <div class="flex border-b border-borderDark bg-[#08090f]">
+                        <button onclick="switchTab('python', this)" class="sandbox-tab-btn px-5 py-3.5 font-mono text-xs uppercase border-r border-borderDark text-lime-400 border-b-2 border-b-lime-400 font-bold bg-cyberSpace transition-all">MicroPython</button>
+                        <button onclick="switchTab('nodered', this)" class="sandbox-tab-btn px-5 py-3.5 font-mono text-xs uppercase border-r border-borderDark text-slate-500 font-medium transition-all">Node-RED Flow</button>
+                        <button onclick="switchTab('cpp', this)" class="sandbox-tab-btn px-5 py-3.5 font-mono text-xs uppercase border-r border-borderDark text-slate-500 font-medium transition-all">Arduino C++</button>
+                    </div>
+                    <div class="p-5 flex-1 overflow-y-auto bg-[#030406] custom-scrollbar">
+                        <pre id="code-block" class="font-mono text-xs text-emerald-400 leading-relaxed overflow-x-auto whitespace-pre-wrap"></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="green-roadmap" class="border-t border-borderDark bg-cyberSpace py-20 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-100 tracking-tight uppercase mb-10">Green Roadmap & JdVVNL Compliance Matrix</h2>
+
+            <div class="bg-cardDark border border-borderDark p-6 md:p-8 rounded-2xl mb-10 shadow-xl font-mono">
+                <div class="flex flex-col sm:flex-row justify-between text-xs uppercase text-slate-400 mb-3 font-bold tracking-wide gap-1">
+                    <span>Institutional Carbon Footprint Mitigation Progress</span>
+                    <span class="text-lime-400">18.4% Achieved / 30.0% Net Structural Target</span>
+                </div>
+                <div class="w-full h-5 bg-cyberSpace rounded-full overflow-hidden border border-borderDark p-1 shadow-inner">
+                    <div class="h-full bg-gradient-to-r from-emerald-500 via-lime-400 to-lime-300 rounded-full shadow-lg shadow-lime-400/20" style="width: 61.3%"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div id="net-metering-segment" class="lg:col-span-7 bg-cardDark border border-borderDark p-6 md:p-8 rounded-2xl shadow-xl">
+                    <h3 class="font-mono font-black text-sm uppercase text-slate-200 border-b border-borderDark pb-4 mb-5 tracking-wide flex items-center gap-2">
+                        <svg class="w-4 h-4 text-lime-400 fill-current" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Official JdVVNL Net-Metering NOC Checklist
+                    </h3>
+                    <div class="space-y-4 font-mono text-xs text-slate-300">
+                        <div class="flex items-start gap-4 p-3.5 bg-cyberSpace border border-borderDark rounded-xl shadow-inner">
+                            <input type="checkbox" checked disabled class="mt-1 accent-lime-400 h-4 w-4 rounded">
+                            <div><span class="text-slate-100 font-bold block text-sm">Sanctioned Load Verification Dossier</span><span class="text-slate-400 font-sans text-xs mt-0.5 block">Validation matching institutional connected load limits within historical parameters.</span></div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3.5 bg-cyberSpace border border-borderDark rounded-xl shadow-inner">
+                            <input type="checkbox" checked disabled class="mt-1 accent-lime-400 h-4 w-4 rounded">
+                            <div><span class="text-slate-100 font-bold block text-sm">Structural Stability Clearance Certificate</span><span class="text-slate-400 font-sans text-xs mt-0.5 block">Authorized architecture structural stamp ensuring physical rooftop deadweight capacity.</span></div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3.5 bg-cyberSpace border border-borderDark rounded-xl shadow-inner">
+                            <input type="checkbox" id="noc-interactive-check" class="mt-1 accent-lime-400 h-4 w-4 rounded cursor-pointer" onchange="updateNocFeedback(this)">
+                            <div><span id="noc-title-label" class="text-slate-100 font-bold block text-sm">Inverter CEA Equipment Test Report</span><span class="text-slate-400 font-sans text-xs mt-0.5 block">Anti-islanding protective array compliance verification signed under Central Electricity Authority terms.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-cardDark border border-borderDark p-6 md:p-8 rounded-2xl shadow-xl flex flex-col justify-between font-mono text-xs space-y-5">
+                    <h3 class="font-black text-sm uppercase text-slate-200 border-b border-borderDark pb-4 tracking-wide">// Sub-Division Jurisdiction</h3>
+                    <div class="space-y-4">
+                        <div><span class="text-slate-500 block text-[10px] font-bold uppercase tracking-wider mb-0.5">Office Division Authority</span><span class="text-slate-200 font-bold text-sm">Jodhpur Vidyut Vitran Nigam Limited (JdVVNL)</span></div>
+                        <div><span class="text-slate-500 block text-[10px] font-bold uppercase tracking-wider mb-0.5">Physical Distribution Vector</span><span class="text-slate-300 font-sans text-sm">Shastri Nagar Sub-Division Core Office, Jodhpur, Rajasthan (342003)</span></div>
+                        <div><span class="text-slate-500 block text-[10px] font-bold uppercase tracking-wider mb-0.5">Dedicated Liaison Portal</span><span class="text-lime-400 font-bold text-sm border-b border-lime-500/20 pb-0.5 select-all">jd-shastri-zone@rajasthan.gov.in</span></div>
+                    </div>
+                    <div class="bg-cyberSpace/80 border border-borderDark rounded-xl p-3 text-[11px] text-slate-400 font-sans italic">
+                        *Please route all solar net-metering physical inspection schedules directly through the institutional office system.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dialogue-alerts" class="border-t border-borderDark bg-cardDark/40 py-20 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="bg-cyberSpace border border-borderDark p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 shadow-2xl">
+                <div class="font-mono text-xs">
+                    <span class="text-slate-300 font-bold block text-sm tracking-tight">Access Token Validation Console</span>
+                    <span id="user-token-label" class="text-lime-400 font-semibold tracking-wide block mt-0.5">● Authenticated Institutional Profile Token Active</span>
+                </div>
+                <button onclick="toggleUserLogin()" id="login-toggle-btn" class="font-mono text-xs px-4 py-2 rounded-xl border border-rose-500/20 text-rose-400 bg-rose-950/20 hover:bg-rose-950/40 uppercase font-bold tracking-wider transition-all shadow-md">Bypass / Logout</button>
+            </div>
+
+            <div class="flex border-b border-borderDark mb-10 font-mono text-sm uppercase tracking-widest font-black gap-2">
+                <button onclick="switchFeedbackMode('forum', this)" class="feedback-tab px-6 py-4 border-b-2 border-b-lime-400 bg-cyberSpace rounded-t-xl text-lime-400 transition-all">Community Discussion</button>
+                <button onclick="switchFeedbackMode('complaints', this)" class="feedback-tab px-6 py-4 text-slate-500 transition-all hover:text-slate-300">Grievance Desk</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div id="forum-wrapper" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
+                    <div class="lg:col-span-5 bg-cyberSpace border border-borderDark p-6 rounded-2xl shadow-xl font-mono text-xs h-fit space-y-4">
+                        <div class="text-xs uppercase font-bold text-slate-400 pb-2 border-b border-borderDark">// Post New Telemetry Insight</div>
+                        <form onsubmit="submitForumPost(event)" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Identifier</label><input type="text" id="forum-name" value="Ankit Sharma" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 font-semibold focus:outline-none focus:border-lime-400" required></div>
+                                <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Campus Role</label>
+                                    <select id="forum-role" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 focus:outline-none focus:border-lime-400">
+                                        <option>Student</option><option>Faculty</option><option>Researcher</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Infrastructure Core Domain</label>
+                                <select id="forum-category" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 focus:outline-none focus:border-lime-400">
+                                    <option>General</option><option>Solar Arrays</option><option>Kinetic Walkway</option>
+                                </select>
+                            </div>
+                            <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Payload Data / Insight Text</label><textarea id="forum-msg" rows="4" placeholder="Inject broadcast message structural notes..." class="w-full bg-cardDark border border-borderDark p-3 rounded-xl text-slate-100 font-sans text-sm focus:outline-none focus:border-lime-400 resize-none" required></textarea></div>
+                            <button type="submit" id="forum-submit-btn" class="w-full bg-gradient-to-r from-lime-400 to-emerald-400 text-slate-950 py-3 rounded-xl font-extrabold uppercase tracking-wider transition-all shadow-md shadow-lime-400/5 cursor-pointer">Broadcast Message</button>
+                        </form>
+                    </div>
+                    <div id="forum-feed" class="lg:col-span-7 space-y-4">
+                        </div>
+                </div>
+
+                <div id="complaint-wrapper" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-8 w-full hidden">
+                    <div class="lg:col-span-5 bg-cyberSpace border border-borderDark p-6 rounded-2xl shadow-xl font-mono text-xs h-fit space-y-4">
+                        <div class="text-xs uppercase font-bold text-rose-400 pb-2 border-b border-borderDark">// File Infrastructure Ticket</div>
+                        <form onsubmit="submitComplaint(event)" class="space-y-4">
+                            <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Grievance Target Title</label><input type="text" id="comp-title" placeholder="e.g. Inverter Multi-fault Loop" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 focus:outline-none focus:border-rose-400" required></div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Hardware Segment</label>
+                                    <select id="comp-cat" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 focus:outline-none focus:border-rose-400">
+                                        <option>Solar Arrays</option><option>Kinetic Tiles</option><option>LED Grids</option>
+                                    </select>
+                                </div>
+                                <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Urgency Level</label>
+                                    <select id="comp-urgency" class="w-full bg-cardDark border border-borderDark px-3 py-2.5 rounded-xl text-slate-100 focus:outline-none focus:border-rose-400">
+                                        <option>Low</option><option>Medium</option><option>High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div><label class="block text-slate-400 mb-1.5 font-bold tracking-wide">Technical Fault Comprehensive Breakdown</label><textarea id="comp-details" rows="4" placeholder="Detail hardware failure log outputs..." class="w-full bg-cardDark border border-borderDark p-3 rounded-xl text-slate-100 font-sans text-sm focus:outline-none focus:border-rose-400 resize-none" required></textarea></div>
+                            <button type="submit" id="comp-submit-btn" class="w-full bg-gradient-to-r from-rose-500 to-red-600 text-white py-3 rounded-xl font-extrabold uppercase tracking-wider transition-all shadow-lg shadow-rose-500/10 cursor-pointer">File Official Ticket</button>
+                        </form>
+                    </div>
+                    <div id="complaint-feed" class="lg:col-span-7 space-y-4">
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="share-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-2xl bg-black/80 hidden transition-all duration-300" onclick="toggleShareModal(false)">
+        <div class="relative w-full max-w-lg border border-lime-500/30 rounded-2xl bg-cardDark p-6 md:p-8 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between border-b border-borderDark pb-4 mb-5">
+                <h3 class="font-mono text-base font-black uppercase tracking-widest text-slate-100 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-lime-400"></span> Share Initiative Portal
+                </h3>
+                <button onclick="toggleShareModal(false)" class="text-slate-400 hover:text-lime-400 font-mono font-bold text-2xl transition-colors leading-none">&times;</button>
+            </div>
+            <div class="space-y-5 font-mono text-sm">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Secure Public Verification Link</label>
+                    <div class="flex items-center gap-2 bg-cyberSpace border border-borderDark rounded-xl p-3 shadow-inner">
+                        <span class="text-slate-300 truncate flex-1 text-xs select-all">https://lachoo-smartgreen-portal.edu</span>
+                        <button onclick="copyToClipboard('https://lachoo-smartgreen-portal.edu', this)" class="text-lime-400 font-bold text-xs uppercase px-2 py-1 bg-lime-400/5 hover:bg-lime-400/10 rounded-md tracking-wider transition-all">Copy</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-rose-400 uppercase tracking-wide mb-2">Direct Authorized Bypass Security Link</label>
+                    <div class="flex items-center gap-2 bg-cyberSpace border border-rose-950/40 rounded-xl p-3 shadow-inner">
+                        <span class="text-rose-300/80 truncate flex-1 text-[11px] select-all">https://lachoo-smartgreen-portal.edu/?bypass_auth=true</span>
+                        <button onclick="copyToClipboard('https://lachoo-smartgreen-portal.edu/?bypass_auth=true', this)" class="text-rose-400 font-bold text-xs uppercase px-2 py-1 bg-rose-400/5 hover:bg-rose-400/10 rounded-md tracking-wider transition-all">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-cyberSpace border-t border-borderDark py-10 px-4 font-mono text-[11px] text-slate-500 text-center tracking-wider leading-relaxed">
+        <p>© 2026 LACHOO MEMORIAL COLLEGE OF SCIENCE & TECHNOLOGY (AUTONOMOUS), JODHPUR.</p>
+        <p class="text-[9px] text-slate-600 mt-1 uppercase font-semibold">Department of Information Technology & Engineering Telemetry Network Blocks.</p>
+    </footer>
+
+    <script>
+        // System Authentication Layer Runtime Data
+        let isLoggedIn = true;
+
+        function toggleUserLogin() {
+            isLoggedIn = !isLoggedIn;
+            const label = document.getElementById('user-token-label');
+            const btn = document.getElementById('login-toggle-btn');
+            const fSubmit = document.getElementById('forum-submit-btn');
+            const cSubmit = document.getElementById('comp-submit-btn');
+
+            if (isLoggedIn) {
+                label.className = "text-lime-400 font-semibold tracking-wide block mt-0.5";
+                label.innerText = "● Authenticated Institutional Profile Token Active";
+                btn.className = "font-mono text-xs px-4 py-2 rounded-xl border border-rose-500/20 text-rose-400 bg-rose-950/20 hover:bg-rose-950/40 uppercase font-bold tracking-wider transition-all shadow-md";
+                btn.innerText = "Bypass / Logout";
+                fSubmit.disabled = false; cSubmit.disabled = false;
+                fSubmit.innerText = "Broadcast Message"; cSubmit.innerText = "File Official Ticket";
+                fSubmit.className = "w-full bg-gradient-to-r from-lime-400 to-emerald-400 text-slate-950 py-3 rounded-xl font-extrabold uppercase tracking-wider transition-all shadow-md shadow-lime-400/5 cursor-pointer";
+                cSubmit.className = "w-full bg-gradient-to-r from-rose-500 to-red-600 text-white py-3 rounded-xl font-extrabold uppercase tracking-wider transition-all shadow-lg shadow-rose-500/10 cursor-pointer";
+            } else {
+                label.className = "text-slate-500 font-medium tracking-wide block mt-0.5";
+                label.innerText = "Guest Access Architecture Mode";
+                btn.className = "font-mono text-xs px-4 py-2 rounded-xl border border-lime-400 text-slate-950 bg-lime-400 hover:bg-lime-300 uppercase font-bold tracking-wider transition-all shadow-md";
+                btn.innerText = "Simulate Token Login";
+                fSubmit.disabled = true; cSubmit.disabled = true;
+                fSubmit.innerText = "Authorization Token Required"; cSubmit.innerText = "Authorization Token Required";
+                fSubmit.className = "w-full bg-slate-800 text-slate-500 py-3 rounded-xl font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-none";
+                cSubmit.className = "w-full bg-slate-800 text-slate-500 py-3 rounded-xl font-bold uppercase tracking-wider transition-all cursor-not-allowed shadow-none";
+            }
+        }
+
+        // Module 3 Core: Utility Analytical Calculations
+        function loadBillPreset(units, fixed, elementId) {
+            document.getElementById('bill-units').value = units;
+            document.getElementById('bill-fixed').value = fixed;
+            
+            document.getElementById('preset-main').className = "p-5 rounded-xl border text-left bg-cyberSpace border-borderDark text-slate-400 hover:border-slate-700 font-mono text-sm font-bold transition-all duration-300";
+            document.getElementById('preset-pharmacy').className = "p-5 rounded-xl border text-left bg-cyberSpace border-borderDark text-slate-400 hover:border-slate-700 font-mono text-sm font-bold transition-all duration-300";
+            
+            document.getElementById(elementId).className = "p-5 rounded-xl border text-left bg-lime-950/20 border-lime-500/50 shadow-lg shadow-lime-500/5 font-mono text-sm font-bold text-slate-200 transition-all duration-300";
+            
+            calculateBill();
+        }
+
+        function calculateBill() {
+            const units = Number(document.getElementById('bill-units').value) || 0;
+            const fixed = Number(document.getElementById('bill-fixed').value) || 0;
+            const billingConstant = 6.75;
+
+            const baseVariableCost = units * billingConstant;
+            const netAggregateCost = baseVariableCost + fixed;
+            const solarReductionReturn = netAggregateCost * 0.68;
+            const macroSystemImplementationCost = (units / 365 / 5) * 55000;
+            const returnDurationYears = solarReductionReturn > 0 ? (macroSystemImplementationCost / solarReductionReturn) : 0;
+
+            document.getElementById('bill-variable-breakdown').innerText = `Variable Phase: ₹${baseVariableCost.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+            document.getElementById('bill-total').innerText = `₹${netAggregateCost.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+            document.getElementById('bill-offset').innerText = `₹${solarReductionReturn.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+            document.getElementById('bill-payback').innerText = `${returnDurationYears > 0 ? returnDurationYears.toFixed(1) : '0.0'} Years`;
+        }
+
+        // Module 4 Core: Solar Micro-Yield Simulator Array
+        let selectedWingArea = 1800;
+
+        function selectSolarWing(area, element) {
+            selectedWingArea = area;
+            document.querySelectorAll('.wing-btn').forEach(btn => {
+                btn.className = "wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-cardDark border-borderDark text-slate-400 hover:border-slate-700";
+            });
+            element.className = "wing-btn w-full p-5 rounded-xl border text-left transition-all duration-300 bg-lime-950/20 border-lime-500/50 text-slate-100 shadow-md";
+            runSolarModel();
+        }
+
+        function runSolarModel() {
+            const rangeFactor = Number(document.getElementById('solar-slider').value);
+            document.getElementById('coverage-val').innerText = `${rangeFactor}% Target`;
+
+            const computedAreaSquareMeters = (selectedWingArea * rangeFactor) / 100;
+            document.getElementById('calc-area-label').innerText = `Calculated Net Footprint: ${computedAreaSquareMeters.toFixed(0)} sq.m`;
+
+            const capacityKwpVal = computedAreaSquareMeters / 10;
+            const continuousDailyYieldKwh = capacityKwpVal * 6.9 * 0.77;
+            const macroMonthlyYieldKwh = continuousDailyYieldKwh * 30.4;
+
+            const primarySystemCapex = capacityKwpVal * 55000;
+            const frameworkSubsidy = capacityKwpVal <= 3 ? primarySystemCapex * 0.4 : (3 * 55000 * 0.4) + (Math.min(capacityKwpVal - 3, 7) * 55000 * 0.2);
+            const absoluteCapitalRequired = Math.max(primarySystemCapex - frameworkSubsidy, 0);
+            const calculatedAnnualSavings = (continuousDailyYieldKwh * 365) * 6.75;
+            const localizedPaybackIndex = calculatedAnnualSavings > 0 ? (absoluteCapitalRequired / calculatedAnnualSavings) : 0;
+
+            document.getElementById('solar-out-capacity').innerText = `${capacityKwpVal.toFixed(1)} kWp`;
+            document.getElementById('solar-out-daily').innerText = `${continuousDailyYieldKwh.toFixed(1)} kWh`;
+            document.getElementById('solar-out-monthly').innerText = `${macroMonthlyYieldKwh.toLocaleString(undefined, {maximumFractionDigits:0})} kWh`;
+            document.getElementById('solar-out-payback').innerText = `${localizedPaybackIndex.toFixed(1)} Years`;
+
+            document.getElementById('solar-cost-base').innerText = `₹${primarySystemCapex.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+            document.getElementById('solar-cost-subsidy').innerText = `- ₹${frameworkSubsidy.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+            document.getElementById('solar-cost-net').innerText = `₹${absoluteCapitalRequired.toLocaleString(undefined, {maximumFractionDigits:0})}`;
+        }
+
+        // Module 5 Core: Kinetic Array Realtime Telemetry IO Terminal
+        let cliSpeed = 'Normal';
+        let footfallTotal = 342050;
+        let joulesTotal = 3420500;
+        let cliInterval = null;
+        const layoutGeometries = ['Canteen Main Corridor', 'Admin Block Hallway A', 'PG Science Library Entry', 'Pharmacy Quad Gate'];
+
+        function setCliSpeed(speed, btn) {
+            cliSpeed = speed;
+            document.querySelectorAll('.speed-btn').forEach(b => b.className = "speed-btn px-2.5 py-1 rounded-md text-slate-400 font-bold transition-all");
+            btn.className = "speed-btn px-2.5 py-1 rounded-md bg-lime-400 text-slate-900 font-bold transition-all";
+            clearInterval(cliInterval);
+            initCliLoop();
+        }
+
+        function initCliLoop() {
+            if (cliSpeed === 'Paused') return;
+            const loopFrequencyDelay = cliSpeed === 'Fast' ? 350 : 1100;
+
+            cliInterval = setInterval(() => {
+                const multiStepRandomPulse = Math.floor(Math.random() * 4) + 1;
+                const incrementalJoules = multiStepRandomPulse * 10;
+                footfallTotal += multiStepRandomPulse;
+                joulesTotal += incrementalJoules;
+
+                document.getElementById('cli-footfall-counter').innerText = footfallTotal.toLocaleString();
+                document.getElementById('cli-joules-counter').innerText = `${(joulesTotal / 1000).toFixed(2)} kJ`;
+
+                const pulseIndicator = document.getElementById('cli-pulse-indicator');
+                const pulseText = document.getElementById('cli-pulse-text');
+                if (incrementalJoules >= 30) {
+                    pulseIndicator.className = "border border-rose-500/50 bg-rose-950/20 p-6 rounded-2xl font-mono flex items-center justify-between transition-all duration-300 shadow-xl shadow-rose-500/5";
+                    pulseText.innerText = "HIGH VOLTAGE IMPULSE";
+                    setTimeout(() => {
+                        pulseIndicator.className = "border border-borderDark bg-cyberSpace p-6 rounded-2xl font-mono flex items-center justify-between transition-all duration-300 shadow-xl";
+                        pulseText.innerText = "NOMINAL STREAM";
+                    }, 500);
+                }
+
+                const screenLogTerminal = document.getElementById('cli-terminal-screen');
+                const currentLocalTimeStr = new Date().toLocaleTimeString();
+                const selectedLocIndex = layoutGeometries[Math.floor(Math.random() * layoutGeometries.length)];
+                const elementRow = document.createElement('div');
+                elementRow.className = "flex items-center gap-2 whitespace-nowrap text-slate-300 animate-fadeIn";
+                elementRow.innerHTML = `<span class="text-slate-600 font-medium">[${currentLocalTimeStr}]</span> <span class="${incrementalJoules >= 30 ? 'text-rose-400 font-bold bg-rose-950/40 border border-rose-900/30 px-1 rounded' : 'text-lime-400 font-semibold'}">${incrementalJoules >= 30 ? 'PULSE' : 'CORE'}</span> <span class="text-slate-400 truncate max-w-[150px]">${selectedLocIndex}</span> <span class="text-slate-600">&gt;&gt;</span> <span class="text-slate-100 font-bold">+${incrementalJoules}J Generated</span>`;
+                
+                screenLogTerminal.appendChild(elementRow);
+                screenLogTerminal.scrollTop = screenLogTerminal.scrollHeight;
+                if(screenLogTerminal.children.length > 25) screenLogTerminal.removeChild(screenLogTerminal.firstChild);
+
+            }, loopFrequencyDelay);
+        }
+
+        // Code snippets mapping structure
+        const scriptsRepository = {
+            python: `import time\nimport machine\nimport urequests\n\npiezo_adc_node = machine.ADC(machine.Pin(34))\npiezo_adc_node.atten(machine.ADC.ATTN_11DB)\n\nwhile True:\n    voltage_raw_stream = piezo_adc_node.read()\n    if voltage_raw_stream > 500:\n        joules_metric = (voltage_raw_stream / 4095.0) * 10.0\n        payload_buffer = {"location": "Main Block Entrance", "joules": joules_metric}\n        urequests.post("https://api.lachoo.green/telemetry", json=payload_buffer)\n    time.sleep(0.1)`,
+            nodered: `[\n  {\n    "id": "kinetic-flow-node",\n    "type": "function",\n    "name": "Analyze Micro-Step Pulse",\n    "func": "if(msg.payload.joules > 8.0) {\\n  msg.payload = { telemetryAlert: 'SPIKE_DETECTION', value: msg.payload.joules };\\n  return msg;\\n}\\nreturn null;\\n"\n  }\n]`,
+            cpp: `#include <Arduino.h>\nconst int HARDWARE_PIEZO_PIN = 34;\nvolatile int interruptStepTrackingCounter = 0;\n\nvoid IRAM_ATTR executeStepPulseISR() { interruptStepTrackingCounter++; }\n\nvoid setup() {\n    Serial.begin(115200);\n    attachInterrupt(digitalPinToInterrupt(HARDWARE_PIEZO_PIN), executeStepPulseISR, RISING);\n}\nvoid loop() {\n    if(interruptStepTrackingCounter > 0) {\n        Serial.printf("{\\"hardwareInterruptPulses\\": %d}\\n", interruptStepTrackingCounter);\n        interruptStepTrackingCounter = 0;\n    }\n    delay(500);\n}`
+        };
+
+        function switchTab(lang, btn) {
+            document.querySelectorAll('.sandbox-tab-btn').forEach(b => b.className = "sandbox-tab-btn px-5 py-3.5 font-mono text-xs uppercase border-r border-borderDark text-slate-500 font-medium transition-all");
+            btn.className = "sandbox-tab-btn px-5 py-3.5 font-mono text-xs uppercase border-r border-borderDark text-lime-400 border-b-2 border-b-lime-400 font-bold bg-cyberSpace transition-all";
+            document.getElementById('code-block').innerText = scriptsRepository[lang];
+        }
+
+        // Regulatory checklist interaction helper
+        function updateNocFeedback(checkbox) {
+            const titleLabel = document.getElementById('noc-title-label');
+            if (checkbox.checked) {
+                titleLabel.className = "text-lime-400 font-bold block text-sm transition-colors";
+            } else {
+                titleLabel.className = "text-slate-100 font-bold block text-sm transition-colors";
+            }
+        }
+
+        // Module 7 Core: Public Dialogue Datastores
+        let forumPostsBuffer = [
+            { id: 1, author: 'Aayush B.', role: 'Student', category: 'Kinetic Walkway', message: 'The structural optimization array near the campus library path is incredibly sensitive! Can we request a physical graphical display screen module to be mounted nearby?', timestamp: '10:15 AM', likes: 14 },
+            { id: 2, author: 'Dr. Meena S.', role: 'Faculty', category: 'Solar Arrays', message: 'The Pharmacy Research Wing photovoltaic layout calculation matrix holds value, but continuous dust filtration processing cycles must align strictly with the inter-semester break calendar.', timestamp: 'Yesterday', likes: 29 }
+        ];
+
+        let grievancesTicketsBuffer = [
+            { id: 101, title: 'Admin Block Third-Floor Grid Degradation', category: 'LED Grids', urgency: 'Medium', status: 'Investigating', details: 'Outer wing lighting segments are exhibiting sporadic voltage drawing loops during evening load transitions.', timestamp: '14 June 2026' }
+        ];
+
+        function switchFeedbackMode(mode, btn) {
+            document.querySelectorAll('.feedback-tab').forEach(b => b.className = "feedback-tab px-6 py-4 text-slate-500 transition-all hover:text-slate-300");
+            btn.className = "feedback-tab px-6 py-4 border-b-2 border-b-lime-400 bg-cyberSpace rounded-t-xl text-lime-400 transition-all font-black";
+            
+            if (mode === 'forum') {
+                document.getElementById('forum-wrapper').classList.remove('hidden');
+                document.getElementById('complaint-wrapper').classList.add('hidden');
+            } else {
+                document.getElementById('forum-wrapper').classList.add('hidden');
+                document.getElementById('complaint-wrapper').classList.remove('hidden');
+            }
+        }
+
+        function renderForum() {
+            const viewport = document.getElementById('forum-feed');
+            viewport.innerHTML = '';
+            forumPostsBuffer.forEach(post => {
+                viewport.innerHTML += `<div class="bg-cyberSpace border border-borderDark p-5 rounded-2xl font-mono relative shadow-xl">
+                    <div class="flex items-center justify-between border-b border-borderDark pb-2.5 mb-3.5 text-xs">
+                        <div class="flex items-center gap-2"><span class="text-slate-200 font-extrabold text-sm">${post.author}</span><span class="text-[9px] bg-cardDark border border-borderDark px-2 py-0.5 rounded-md text-slate-400 font-bold uppercase tracking-wider">${post.role}</span></div>
+                        <div class="flex items-center gap-2 text-[11px]"><span class="text-slate-500 font-medium">${post.timestamp}</span><span class="bg-lime-950/40 text-lime-400 px-2.5 py-0.5 border border-lime-900/30 text-[9px] font-bold uppercase tracking-wide rounded-md">${post.category}</span></div>
+                    </div>
+                    <p class="font-sans text-xs md:text-sm text-slate-300 leading-relaxed mb-4">${post.message}</p>
+                    <div class="flex justify-end"><button onclick="likePost(${post.id})" class="flex items-center gap-1.5 font-mono text-xs border border-borderDark text-slate-400 hover:text-lime-400 hover:border-lime-500/30 bg-cardDark rounded-xl px-3 py-1.5 transition-all">Upvote Data (${post.likes})</button></div>
+                </div>`;
+            });
+        }
+
+        function submitForumPost(e) {
+            e.preventDefault();
+            if(!isLoggedIn) return;
+            const newPayloadItem = {
+                id: Date.now(),
+                author: document.getElementById('forum-name').value,
+                role: document.getElementById('forum-role').value,
+                category: document.getElementById('forum-category').value,
+                message: document.getElementById('forum-msg').value,
+                timestamp: 'Just Now',
+                likes: 0
+            };
+            forumPostsBuffer.unshift(newPayloadItem);
+            document.getElementById('forum-msg').value = '';
+            renderForum();
+        }
+
+        function likePost(id) {
+            forumPostsBuffer = forumPostsBuffer.map(p => p.id === id ? { ...p, likes: p.likes + 1 } : p);
+            renderForum();
+        }
+
+        function renderComplaints() {
+            const viewport = document.getElementById('complaint-feed');
+            viewport.innerHTML = '';
+            grievancesTicketsBuffer.forEach(ticket => {
+                viewport.innerHTML += `<div class="bg-cyberSpace border border-borderDark p-5 rounded-2xl font-mono shadow-xl">
+                    <div class="flex flex-wrap items-center justify-between border-b border-borderDark pb-2.5 mb-3.5 gap-2 text-xs">
+                        <div class="flex items-center gap-2"><span class="text-slate-200 font-extrabold text-sm">${ticket.title}</span><span class="text-[9px] px-2 py-0.5 border border-amber-600 text-amber-400 font-bold uppercase rounded-md tracking-wider bg-amber-950/20">${ticket.urgency}</span></div>
+                        <div class="flex items-center gap-2 text-[11px]"><span class="text-slate-500 font-medium">${ticket.timestamp}</span><span class="px-2 py-0.5 text-[9px] border border-amber-500 text-amber-400 uppercase font-black tracking-widest rounded-md bg-amber-500/5">${ticket.status}</span></div>
+                    </div>
+                    <p class="font-sans text-xs md:text-sm text-slate-400 mb-4 leading-relaxed">${ticket.details}</p>
+                    <div class="flex justify-between items-center pt-3 border-t border-borderDark">
+                        <span class="text-[10px] text-slate-500 font-bold">CORE DOMAIN: ${ticket.category}</span>
+                        <button onclick="advanceComplaint(${ticket.id})" class="text-[11px] font-black text-slate-400 hover:text-lime-400 uppercase tracking-wide transition-colors">Advance Lifecycle Stage &gt;</button>
+                    </div>
+                </div>`;
+            });
+        }
+
+        function submitComplaint(e) {
+            e.preventDefault();
+            if(!isLoggedIn) return;
+            const newTicketObject = {
+                id: Date.now(),
+                title: document.getElementById('comp-title').value,
+                category: document.getElementById('comp-cat').value,
+                urgency: document.getElementById('comp-urgency').value,
+                status: 'Pending',
+                details: document.getElementById('comp-details').value,
+                timestamp: 'Just Now'
+            };
+            grievancesTicketsBuffer.unshift(newTicketObject);
+            document.getElementById('comp-title').value = '';
+            document.getElementById('comp-details').value = '';
+            renderComplaints();
+        }
+
+        function advanceComplaint(id) {
+            grievancesTicketsBuffer = grievancesTicketsBuffer.map(ticket => {
+                if(ticket.id === id) {
+                    const trackingStages = ['Pending', 'Investigating', 'Resolved'];
+                    const processingIndex = (trackingStages.indexOf(ticket.status) + 1) % trackingStages.length;
+                    return { ...ticket, status: trackingStages[processingIndex] };
+                }
+                return ticket;
+            });
+            renderComplaints();
+        }
+
+        // Shared Modal System Mechanics
+        function toggleShareModal(open) {
+            document.getElementById('share-modal').classList.toggle('hidden', !open);
+        }
+
+        function copyToClipboard(text, targetButton) {
+            navigator.clipboard.writeText(text).then(() => {
+                const structuralStoredLabel = targetButton.innerText;
+                targetButton.innerText = "COPIED";
+                setTimeout(() => targetButton.innerText = structuralStoredLabel, 1800);
+            }).catch(error => {
+                console.error('Cryptographic stream print block copy error: ', error);
+            });
+        }
+
+        // Initial Window System Startup Sequence Execution
+        window.onload = () => {
+            calculateBill();
+            runSolarModel();
+            initCliLoop();
+            switchTab('python', document.querySelector('.sandbox-tab-btn'));
+            renderForum();
+            renderComplaints();
+        };
+    </script>
+</body>
+</html>
